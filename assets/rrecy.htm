@@ -1,0 +1,482 @@
+﻿
+	<!DOCTYPE html>
+<!--
+                                   .. .vr       
+                                 qBMBBBMBMY     
+                                8BBBBBOBMBMv    
+                              iMBMM5vOY:BMBBv        
+              .r,             OBM;   .: rBBBBBY     
+              vUL             7BB   .;7. LBMMBBM.   
+             .@Wwz.           :uvir .i:.iLMOMOBM..  
+              vv::r;             iY. ...rv,@arqiao. 
+               Li. i:             v:.::::7vOBBMBL.. 
+               ,i7: vSUi,         :M7.:.,:u08OP. .  
+                 .N2k5u1ju7,..     BMGiiL7   ,i,i.  
+                  :rLjFYjvjLY7r::.  ;v  vr... rE8q;.:,, 
+                 751jSLXPFu5uU@guohezou.,1vjY2E8@Yizero.    
+                 BB:FMu rkM8Eq0PFjF15FZ0Xu15F25uuLuu25Gi.   
+               ivSvvXL    :v58ZOGZXF2UUkFSFkU1u125uUJUUZ,   
+             :@kevensun.      ,iY20GOXSUXkSuS2F5XXkUX5SEv.  
+         .:i0BMBMBBOOBMUi;,        ,;8PkFP5NkPXkFqPEqqkZu.  
+       .rqMqBBMOMMBMBBBM .           @kexianli.S11kFSU5q5   
+     .7BBOi1L1MM8BBBOMBB..,          8kqS52XkkU1Uqkk1kUEJ   
+     .;MBZ;iiMBMBMMOBBBu ,           1OkS1F1X5kPP112F51kU   
+       .rPY  OMBMBBBMBB2 ,.          rME5SSSFk1XPqFNkSUPZ,.
+              ;;JuBML::r:.:.,,        SZPX0SXSP5kXGNP15UBr.
+                  L,    :@huhao.      :MNZqNXqSqXk2E0PSXPE .
+              viLBX.,,v8Bj. i:r7:,     2Zkqq0XXSNN0NOXXSXOU 
+            :r2. rMBGBMGi .7Y, 1i::i   vO0PMNNSXXEqP@Secbone.
+            .i1r. .jkY,    vE. iY....  20Fq0q5X5F1S2F22uuv1M; 
+本软件代码引用自RunJs上Yiding He的程序员老黄历，这大家都很熟了吧
+信则有，不信则无
+原作者twitter: @fake_faith, G+: Yiding He
+修改者：程序员Delton
+Weibo:@丁盛豪 从网：@丁盛豪.cpp @东仙队长 Twitter:@DeltonDing G+:丁盛豪 Facebook:DeltonDing
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>从娘二次元老黄历</title>
+	<script id="jquery_183" type="text/javascript" class="library" src="jquery.js"></script>
+	</head>
+	<body>
+		<div class="container">
+		
+			<!--
+			<div class="title">
+				从娘二次元老黄历<sup> β</sup>
+			</div>
+			-->
+			
+			<div class="date">
+			</div>
+			<div class="good">
+				<div class="title">
+					<table>
+						<tr><td>宜</td></tr>
+					</table>
+				</div>
+				<div class="content">
+					<ul></ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="split"></div>
+			<div class="bad">
+				<div class="title">
+					<table>
+						<tr><td>不宜</td></tr>
+					</table>
+				</div>
+				<div class="content">
+					<ul></ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="split"></div>
+			<div class="line-tip">
+				<strong>座位朝向：</strong>面向<span class="direction_value"></span>发状态，来访最多。
+			</div>
+			<div class="line-tip">
+				<strong>今日宜饮：</strong><span class="drink_value"></span>
+			</div>
+			<div class="line-tip">
+				<strong>Yoooo指数：</strong><span class="goddes_value"></span>
+			</div>
+			<div class="comment">
+				<ul>
+					<li>本老黄历尚处于beta阶段，作者随时会修改，所以如果上午看到的内容跟下午不同，请勿惊慌</li>
+					<li>本老黄历仅面向二次元从娘</li>
+					<li>本老黄历是程序生成的，因为不入二次的程序员不是好程序员</li>
+					<p></p>
+					<li>Android版本正在和网页版同步开发，将于近日上线大量更新</li>
+					<li>Sony Smartwatch版本 Coming soon</li>
+					<li>当前版本：Beta v1.0-Android Build 1000</li>
+					<li>当前版本对应网页版：Beta v1.3 Build 1014</li>
+					<p></p>
+					<li>最近更新：</li>
+					<li>1.第一个版本可脱机运行</li>
+					<li>如有问题请人人网 @东仙队长</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+    	<style>body * {
+	font-family:"Consolas","Microsoft Yahei", Arial, sans-serif;
+}
+
+body {
+	background: white;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 320px;
+	margin: 0 auto 50px;
+}
+
+.container>.title {
+	color: #bbb;
+	font-weight: bold;
+	margin-bottom: 10px;
+	background: #555;
+	padding: 5px 15px;
+}
+
+.adlink {
+	text-align: center;
+	font-size: 11pt;
+}
+
+.adlink a {
+	text-decoration: none;
+	display:block;
+	color: #666;
+	font-weight: bold;
+	margin-bottom: 10px;
+	background: #eee;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 10pt;
+	margin-top: 10pt;
+}
+
+.date{
+	font-size:17pt;
+	font-weight: bold;
+	line-height: 30pt;
+	text-align: center;
+}
+
+.split, .clear {
+	clear: both;
+	height: 1px;
+	overflow-y: hidden;
+}
+
+.good, .bad {
+	clear: both;
+	position: relative;
+}
+
+.bad {
+	/*top: -1px;*/
+}
+
+.good .title, .bad .title {
+	float: left;
+	width: 100px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 30pt;
+	position:absolute;
+	top:0;
+	bottom:0;
+}
+
+.good .title>table, .bad .title>table {
+	position:absolute;
+	width:100%;
+	height:100%;
+	border:none;
+}
+
+.good .title {
+	background: #44ff44;
+	color:#fff;
+}
+
+.bad .title {
+	background: #ff4444;
+	color: #fff;
+}
+
+.good .content, .bad .content {
+	margin-left: 115px;
+	padding-right: 10px;
+	padding-top: 1px;
+	font-size:15pt;
+}
+
+.good {
+	background: #aaffaa;
+}
+
+.bad {
+	background: #ffddd3;
+}
+
+.content ul {
+	list-style: none;
+	margin:10px 0 0;
+	padding:0;
+}
+
+.content ul li {
+	line-height:150%;
+	font-size: 15pt;
+	font-weight: bold;
+	color: #000;
+}
+
+.content ul li div.description {
+	font-size: 11pt;
+	font-weight: normal;
+	color: #777;
+	line-height: 110%;
+	margin-bottom: 10px;
+}
+
+.line-tip {
+	font-size: 11pt;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.direction_value {
+	color:#4a4;
+	font-weight: bold;
+}
+
+.goddes_value {
+	color: #f87;
+}
+
+.comment {
+	margin-top: 50px;
+	font-size: 11pt;
+	margin-left: 10px;
+}
+
+.comment ul {
+	margin-left: 0;
+	padding-left: 20px;
+	color: #999;
+}</style>
+	    		<script>//
+
+/*
+ * 注意：本程序中的“随机”都是伪随机概念，以当前的天为种子。
+ */
+function random(dayseed, indexseed) {
+	
+	var n = dayseed % 99991;
+	for (var i = 0; i < 100 + indexseed; i++) {
+		n = n * n;
+		n = n % 99991;   // 99991 是个质数
+	}
+	return n;
+}
+
+var today = new Date();
+var iday = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+var weeks = ["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"];
+var directions = ["北方","东北方","东方","东南方","南方","西南方","西方","西北方"];
+var activities = [
+	//非周末内容
+	{name:"吃金坷垃", good:"小麦会亩产一千八",bad:"会变得和蠢球一样蠢"},
+	{name:"传三次元照片", good:"发照片有利于涨好友涨来访",bad:"长这样也敢发照片"},
+	{name:"下午发状态", good:"今天下午发状态不会被当作援交妹",bad:"今天下午发状态可能会被当作援交妹"},
+	{name:"删帖", good:"新来的好友会对你有很好的认识",bad:"你很有可能鼻子会变长"},
+	{name:"使用%t", good:"你看起来更有品位",bad:"别人会觉得你在装逼"},
+	{name:"注销账号", good:"该放手时就放手",bad:"鉴于当前的形势，你可能会被挖黑历史"},
+	{name:"求脱团", good:"很有戏",bad:"会招来一群抠脚大汉"},
+	{name:"写一些高深的东西", good:"有利于建立威信",bad:"你会被认为是在装逼"},
+	{name:"玩GALGAME", good:"你会玩到一部神作 ",bad:"你会玩到《冲绳奴隶岛》"},
+	{name:"黑蠢球", good:"蠢球今天心情很好",bad:"收效甚微，反而成为了从网第五蠢"},
+	{name:"晚上加班", good:"晚上是二次元从娘精神最好的时候",bad:"你白天已经筋疲力尽了"},
+	{name:"在妹子面前吹牛", good:"改善你矮穷挫的形象",bad:"会被识破"},
+	{name:"改名叫做\"%v\"", good:"会显得你很萌",bad:"管理员不会让你通过"},
+	{name:"发超过%l条的状态", good:"显得你很高产",bad:"会被人直接拉黑"},
+	{name:"在B站上传视频", good:"会上周榜",bad:"会被黑成球"},
+	{name:"搬运视频", good:"会被硬币砸得很爽",bad:"不会有人看的"},
+	{name:"发语音相册", good:"发语音相册有利于涨好友涨来访",bad:"可能会被蠢球拿去当首页音乐"},
+	{name:"晚上上线", good:"晚上是二次元从娘精神最好的时候",bad:"你白天已经筋疲力尽了"},
+	{name:"学习姿势", good:"你今天对新姿势的嗅觉大大提高",bad:"老师是比♂利♂王"},
+	{name:"卖蠢", good:"拉进和菊苣的距离",bad:"你会变得很蠢"},
+	{name:"上微博", good:"今天发生的事不能错过",bad:"今天的微博充满负能量"},
+	{name:"上AB站", good:"还需要理由吗？",bad:"满屏的兄♂贵我会说出来？"},
+	{name:"自黑", good:"你会得到人们的赞许",bad:"真的黑了"},
+	{name:"翻墙", good:"你不会被查水表",bad:"你会被查水表"},
+	{name:"作死", good:"你会得到人们的同情",bad:"不作死不会死，你识的不识的？"},
+	{name:"看黄历", good:"反正你已经看了",bad:"反正你已经看了"},
+	
+	//周末内容
+	{name:"看本子", good:"你会看到神作",bad:"满屏的兄♂贵我会说出来？",weekend: true},
+	{name:"翻别人黑历史", good:"你会重新认识这个人的人品",bad:"你的人品会被重新认识",weekend: true},
+	{name:"学习一门新技能", good:"我会成为大神",bad:"你可能会误入歧途",weekend: true},
+	{name:"不说话", good:"你会吸引到别人的注意",bad:"你会被阿卡林化",weekend: true},
+	{name:"洗澡", good:"你几天没洗澡了？",bad:"会把节操方面的意识洗掉", weekend: true},
+	{name:"批量删好友", good:"一下子舒服多了",bad:"啊嘞，删错了类", weekend: true},
+	{name:"锻炼一下身体", good:"你几年没出过门了",bad:"能量没消耗多少，吃得却更多", weekend: true},
+	{name:"睡懒觉", good:"避免内存不足",bad:"醒来时已经被黑成球", weekend: true},
+	{name:"看里番", good:"重拾对生活的信心",bad:"你会心神不宁", weekend: true},
+	{name:"玩Minecraft", good:"你将如有神助",bad:"启动器都会崩溃", weekend: true},
+	{name:"补番", good:"你会后悔没早点看这部番",bad:"你会后悔看了这部番", weekend: true},
+	{name:"刷新人人超过%l次", good:"猛然刷出一些很有♂趣的东西",bad:"根本没什么有意思的东西", weekend: true},
+	{name:"坐公交车", good:"有时候奢侈一回也挺好",bad:"不幸坐上了梅赛德斯牌的，被敲诈了1520元", weekend: true},
+];
+
+var specials = [
+	{date:20150205, type:'bad', name:'说自己是援交妹', description:'去年今日有人这么做过，被当真了'},
+	{date:20140214, type:'good', name:'烧烤', description:'会得到全人类的支持与赞赏'},
+	{date:20140214, type:'bad', name:'秀恩爱', description:'可能会被烧死'},
+	{date:20140416, type:'good', name:'送东仙队长一年VIP', description:'才，才不是东仙队长自己写上去的呢'},
+	{date:20140502, type:'bad', name:'参加婚礼', description:'下次，下次再去吧'},
+];
+
+var tools = ["Anrdoid设备发状态", "360", "COS系统", "IE", "命令行发状态", "iPhone发状态", "手以外的部位发状态", "徕卡相机拍照","兄♂贵之奥义",];
+
+var varNames = ["一条乐", "阿卡林", "东仙队长", "Free！", "球磨川禊", "霍青娥", "小野寺五典", "憂鬱的臺灣烏龜"];
+
+var drinks = ["水","茶","红茶","绿茶","咖啡","奶茶","可乐","牛奶","豆奶","果汁","果味汽水","妹汁","运动饮料","酸奶","酒",];
+
+function getTodayString() {
+	return "今天是" + today.getFullYear() + "年" + (today.getMonth() + 1) + "月" + today.getDate() + "日 " + weeks[today.getDay()];
+}
+
+function star(num) {
+	var result = "";
+	var i = 0;
+	while (i < num) {
+		result += "★";
+		i++;
+	}
+	while(i < 5) {
+		result += "☆";
+		i++;
+	}
+	return result;
+} 
+
+// 生成今日运势
+function pickTodaysLuck() {
+  var _activities = filter(activities);
+    
+	var numGood = random(iday, 98) % 3 + 2;
+	var numBad = random(iday, 87) % 3 + 2;
+	var eventArr = pickRandomActivity(_activities, numGood + numBad);
+	
+	var specialSize = pickSpecials();
+	
+	for (var i = 0; i < numGood; i++) {
+		addToGood(eventArr[i]);
+	}
+	
+	for (var i = 0; i < numBad; i++) {
+		addToBad(eventArr[numGood + i]);
+	}
+}
+
+// 去掉一些不合今日的事件
+function filter(activities) {
+    var result = [];
+    
+    // 周末的话，只留下 weekend = true 的事件
+    if (isWeekend()) {
+        
+        for (var i = 0; i < activities.length; i++) {
+            if (activities[i].weekend) {
+                result.push(activities[i]);
+            }
+        }
+        
+        return result;
+    }
+    
+    return activities;
+}
+
+function isWeekend() {
+    return today.getDay() == 0 || today.getDay() == 6;
+}
+
+// 添加预定义事件
+function pickSpecials() {
+	var specialSize = [0,0];
+	
+	for (var i = 0; i < specials.length; i++) {
+		var special = specials[i];
+		
+		if (iday == special.date) {
+			if (special.type == 'good') {
+				specialSize[0]++;
+				addToGood({name: special.name, good: special.description});
+			} else {
+				specialSize[1]++;
+				addToBad({name: special.name, bad: special.description});
+			}
+		}
+	}
+	
+	return specialSize;
+}
+
+// 从 activities 中随机挑选 size 个
+function pickRandomActivity(activities, size) {
+	var picked_events = pickRandom(activities, size);
+	
+	for (var i = 0; i < picked_events.length; i++) {
+		picked_events[i] = parse(picked_events[i]);
+	}
+	
+	return picked_events;
+}
+
+// 从数组中随机挑选 size 个
+function pickRandom(array, size) {
+	var result = [];
+	
+	for (var i = 0; i < array.length; i++) {
+		result.push(array[i]);
+	}
+	
+	for (var j = 0; j < array.length - size; j++) {
+		var index = random(iday, j) % result.length;
+		result.splice(index, 1);
+	}
+	
+	return result;
+}
+
+// 解析占位符并替换成随机内容
+function parse(event) {
+	var result = {name: event.name, good: event.good, bad: event.bad};  // clone
+	
+	if (result.name.indexOf('%v') != -1) {
+		result.name = result.name.replace('%v', varNames[random(iday, 12) % varNames.length]);
+	}
+	
+	if (result.name.indexOf('%t') != -1) {
+		result.name = result.name.replace('%t', tools[random(iday, 11) % tools.length]);
+	}
+	
+	if (result.name.indexOf('%l') != -1) {
+		result.name = result.name.replace('%l', (random(iday, 12) % 247 + 30).toString());
+	}
+	
+	return result;
+}
+
+// 添加到“宜”
+function addToGood(event) {
+	$('.good .content ul').append('<li><div class="name">' + event.name + '</div><div class="description">' + event.good + '</div></li>');
+}
+
+// 添加到“不宜”
+function addToBad(event) {
+	$('.bad .content ul').append('<li><div class="name">' + event.name + '</div><div class="description">' + event.bad + '</div></li>');
+}
+
+$(function(){
+	$('.date').html(getTodayString());
+	$('.direction_value').html(directions[random(iday, 2) % directions.length]);
+	$('.drink_value').html(pickRandom(drinks,2).join('，'));
+	$('.goddes_value').html(star(random(iday, 6) % 5 + 1));
+	pickTodaysLuck();
+});</script>
+	
+<!-- Generated by RunJS (Sat Mar 08 15:01:03 CST 2014) 1ms -->
